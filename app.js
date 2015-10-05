@@ -8,16 +8,25 @@ var pikePlace = {
   }
 }
 
+function pikeDailyTotal(arr) {
+  var pikeTotal = 0;
+  for (var i=0; i<arr.length; i++) {
+    pikeTotal = pikeTotal + arr[i];
+  }
+  return pikeTotal;
+}
+
 function pikeDailyCookiesByLocation() {
   var result = [];
   var hoursOpen = ['10:00AM', '11:00AM', '12:00PM', '1:00PM', '2:00PM', '3:00PM', '4:00PM', '5:00PM'];
   for (var i=0; i<hoursOpen.length; i++) {
     result.push(parseInt(pikePlace.randCustPerHour(pikePlace.minCustPerHour, pikePlace.maxCustPerHour) * pikePlace.avgCookiesPerCust));
   }
+
   for (var i=0; i<result.length; i++) {
     var list = document.getElementById('pike');
     var item = document.createElement('li');
-    item.appendChild(document.createTextNode(hoursOpen[i] + ': ' + result[i]));
+    item.appendChild(document.createTextNode(hoursOpen[i] + ': ' + result[i] + " cookies"));
     list.appendChild(item);
   }
   return list;
@@ -44,7 +53,7 @@ function seaTacDailyCookiesByLocation() {
   for (var i=0; i<result.length; i++) {
     var list = document.getElementById('seatac');
     var item = document.createElement('li');
-    item.appendChild(document.createTextNode(hoursOpen[i] + ': ' + result[i]));
+    item.appendChild(document.createTextNode(hoursOpen[i] + ': ' + result[i] + " cookies"));
     list.appendChild(item);
   }
   return list;
@@ -71,7 +80,7 @@ function southcenterDailyCookiesByLocation() {
   for (var i=0; i<result.length; i++) {
     var list = document.getElementById('southcenter');
     var item = document.createElement('li');
-    item.appendChild(document.createTextNode(hoursOpen[i] + ': ' + result[i]));
+    item.appendChild(document.createTextNode(hoursOpen[i] + ': ' + result[i] + " cookies"));
     list.appendChild(item);
   }
   return list;
@@ -98,7 +107,7 @@ function bellevueDailyCookiesByLocation() {
   for (var i=0; i<result.length; i++) {
     var list = document.getElementById('bellevue');
     var item = document.createElement('li');
-    item.appendChild(document.createTextNode(hoursOpen[i] + ': ' + result[i]));
+    item.appendChild(document.createTextNode(hoursOpen[i] + ': ' + result[i] + " cookies"));
     list.appendChild(item);
   }
   return list;
@@ -125,7 +134,7 @@ function alkiDailyCookiesByLocation() {
   for (var i=0; i<result.length; i++) {
     var list = document.getElementById('alki');
     var item = document.createElement('li');
-    item.appendChild(document.createTextNode(hoursOpen[i] + ': ' + result[i]));
+    item.appendChild(document.createTextNode(hoursOpen[i] + ': ' + result[i] + " cookies"));
     list.appendChild(item);
   }
   return list;

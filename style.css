@@ -1,0 +1,23 @@
+h1 {
+  font-family: 'Special Elite', cursive;
+}
+
+h4 {
+  font-family: 'Special Elite', cursive;
+  color: #003399;
+}
+
+body {
+  background-color: #FAEBD7;
+  font-size: 20px;
+}
+
+.data {
+  font-family: Helvetica;
+  color: #8b0046;
+}
+
+.text {
+  font-family: Times;
+  color: #008b8b;
+}
