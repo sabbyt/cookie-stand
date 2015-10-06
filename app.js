@@ -113,6 +113,7 @@ var bellevue = {
 
 function bellevueDailyCookiesByLocation() {
   var result = [];
+  var bellevueTotal = 0;
   var hoursOpen = ['10:00AM', '11:00AM', '12:00PM', '1:00PM', '2:00PM', '3:00PM', '4:00PM', '5:00PM'];
   for (var i=0; i<hoursOpen.length; i++) {
     result.push(parseInt(bellevue.randCustPerHour(bellevue.minCustPerHour, bellevue.maxCustPerHour) * bellevue.avgCookiesPerCust));
@@ -122,7 +123,12 @@ function bellevueDailyCookiesByLocation() {
     var item = document.createElement('li');
     item.appendChild(document.createTextNode(hoursOpen[i] + ': ' + result[i] + " cookies"));
     list.appendChild(item);
+    bellevueTotal+= result[i];
   }
+  var bellevueNewTotal = document.createElement('li');
+  bellevueNewTotal.appendChild(document.createTextNode('Total: ' + bellevueTotal + " cookies"));
+  list.appendChild(bellevueNewTotal);
+
   return list;
 }
 
@@ -140,6 +146,7 @@ var alki = {
 
 function alkiDailyCookiesByLocation() {
   var result = [];
+  var alkiTotal = 0;
   var hoursOpen = ['10:00AM', '11:00AM', '12:00PM', '1:00PM', '2:00PM', '3:00PM', '4:00PM', '5:00PM'];
   for (var i=0; i<hoursOpen.length; i++) {
     result.push(parseInt(alki.randCustPerHour(alki.minCustPerHour, alki.maxCustPerHour) * alki.avgCookiesPerCust));
@@ -149,7 +156,13 @@ function alkiDailyCookiesByLocation() {
     var item = document.createElement('li');
     item.appendChild(document.createTextNode(hoursOpen[i] + ': ' + result[i] + " cookies"));
     list.appendChild(item);
+    alkiTotal+= result[i];
   }
+
+  var alkiNewTotal = document.createElement('li');
+  alkiNewTotal.appendChild(document.createTextNode('Total: ' + alkiTotal + " cookies"));
+  list.appendChild(alkiNewTotal);
+
   return list;
 }
 
