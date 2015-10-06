@@ -22,7 +22,10 @@ function pikeDailyCookiesByLocation() {
     item.appendChild(document.createTextNode(hoursOpen[i] + ': ' + result[i] + " cookies" ));
     list.appendChild(item);
     pikeTotal+= result[i];
+    console.log("Pike Place Result Count: " + pikeTotal); //checks to see if pikeTotal counter is working
   }
+
+  console.log("Pike Place Daily Array: "+result);
 
   var pikeNewTotal = document.createElement('li');
   pikeNewTotal.appendChild(document.createTextNode('Total: ' + pikeTotal + " cookies"));
@@ -56,7 +59,10 @@ function seaTacDailyCookiesByLocation() {
     item.appendChild(document.createTextNode(hoursOpen[i] + ': ' + result[i] + " cookies" ));
     list.appendChild(item);
     seaTacTotal+= result[i];
+    console.log("SeaTac Result Count: " + seaTacTotal);
   }
+
+  console.log("SeaTac Daily Array: "+result);
 
   var seaTacNewTotal = document.createElement('li');
   seaTacNewTotal.appendChild(document.createTextNode('Total: ' + seaTacTotal + " cookies"));
@@ -90,7 +96,10 @@ function southcenterDailyCookiesByLocation() {
     item.appendChild(document.createTextNode(hoursOpen[i] + ': ' + result[i] + " cookies"));
     list.appendChild(item);
     southcenterTotal+=result[i];
+    console.log("Southcenter Result Count: " + southcenterTotal);
   }
+
+  console.log("Southcenter Daily Array: "+result);
 
   var southcenterNewTotal = document.createElement('li');
   southcenterNewTotal.appendChild(document.createTextNode('Total: ' + southcenterTotal + " cookies"));
@@ -124,7 +133,11 @@ function bellevueDailyCookiesByLocation() {
     item.appendChild(document.createTextNode(hoursOpen[i] + ': ' + result[i] + " cookies"));
     list.appendChild(item);
     bellevueTotal+= result[i];
+    console.log("Bellevue Result Count: " + bellevueTotal);
   }
+
+  console.log("Bellevue Daily Array: "+result);
+
   var bellevueNewTotal = document.createElement('li');
   bellevueNewTotal.appendChild(document.createTextNode('Total: ' + bellevueTotal + " cookies"));
   list.appendChild(bellevueNewTotal);
@@ -157,7 +170,10 @@ function alkiDailyCookiesByLocation() {
     item.appendChild(document.createTextNode(hoursOpen[i] + ': ' + result[i] + " cookies"));
     list.appendChild(item);
     alkiTotal+= result[i];
+    console.log("Alki Result Count: " + alkiTotal);
   }
+
+  console.log("Alki Daily Array: "+result);
 
   var alkiNewTotal = document.createElement('li');
   alkiNewTotal.appendChild(document.createTextNode('Total: ' + alkiTotal + " cookies"));
