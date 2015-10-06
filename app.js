@@ -1,185 +1,47 @@
-var pikePlace = {
-  location: "Pike Place Market",
-  minCustPerHour: 17,
-  maxCustPerHour: 88,
-  avgCookiesPerCust: 5.2,
-  randCustPerHour: function(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-}
+var CookieStand = function(place, minCustPerHour, maxCustPerHour, avgCookiesPerCust) {
+  this.place = place;
+  this.minCustPerHour = minCustPerHour;
+  this.maxCustPerHour = maxCustPerHour;
+  this.avgCookiesPerCust = avgCookiesPerCust;
+  this.cookiesByHourList = [];
 
-function pikeDailyCookiesByLocation() {
-  var result = [];
-  var pikeTotal = 0;
-  var hoursOpen = ['10:00AM', '11:00AM', '12:00PM', '1:00PM', '2:00PM', '3:00PM', '4:00PM', '5:00PM'];
-  for (var i=0; i<hoursOpen.length; i++) {
-    result.push(parseInt(pikePlace.randCustPerHour(pikePlace.minCustPerHour, pikePlace.maxCustPerHour) * pikePlace.avgCookiesPerCust));
-  }
+  this.randCustPerHour = function() {
+    return Math.floor(Math.random() * (this.maxCustPerHour - this.minCustPerHour + 1) + this.minCustPerHour);
+  };
 
-  for (var i=0; i<result.length; i++) {
-    var list = document.getElementById('pike');
-    var item = document.createElement('li');
-    item.appendChild(document.createTextNode(hoursOpen[i] + ': ' + result[i] + " cookies" ));
-    list.appendChild(item);
-    pikeTotal+= result[i];
-    console.log("Pike Place Result Count: " + pikeTotal); //checks to see if pikeTotal counter is working
-  }
+  this.dailyCookies = function(id) {
+    var dailyCookieTotal = 0;
+    var hoursOpen = ['10:00AM', '11:00AM', '12:00PM', '1:00PM', '2:00PM', '3:00PM', '4:00PM', '5:00PM'];
 
-  console.log("Pike Place Daily Array: "+result);
+    for (var i=0; i<hoursOpen.length; i++) {
+      this.cookiesByHourList.push(parseInt(this.randCustPerHour() * this.avgCookiesPerCust));
 
-  var pikeNewTotal = document.createElement('li');
-  pikeNewTotal.appendChild(document.createTextNode('Total: ' + pikeTotal + " cookies"));
-  list.appendChild(pikeNewTotal);
+      dailyCookieTotal += this.cookiesByHourList[i];
+      var list = document.getElementById(id);
+      var item = document.createElement('li');
+      item.appendChild(document.createTextNode(hoursOpen[i] + ': ' + this.cookiesByHourList[i] + " cookies"));
+      list.appendChild(item);
+      console.log(place + " Result Count: " + dailyCookieTotal);
+    }
 
-  return list;
-}
+    var dailyNewTotal = document.createElement('li');
+    dailyNewTotal.appendChild(document.createTextNode('Total: ' + dailyCookieTotal + " cookies"));
+    list.appendChild(dailyNewTotal);
 
-pikeDailyCookiesByLocation();
+    console.log(this.place + " " + this.cookiesByHourList);
+    console.log("Daily Cookie Total: " + dailyCookieTotal);
+  };
 
-var seaTac = {
-  location: "SeaTac Airport",
-  minCustPerHour: 6,
-  maxCustPerHour: 44,
-  avgCookiesPerCust: 1.2,
-  randCustPerHour: function(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-}
+};
 
-function seaTacDailyCookiesByLocation() {
-  var result = [];
-  var seaTacTotal = 0;
-  var hoursOpen = ['10:00AM', '11:00AM', '12:00PM', '1:00PM', '2:00PM', '3:00PM', '4:00PM', '5:00PM'];
-  for (var i=0; i<hoursOpen.length; i++) {
-    result.push(parseInt(seaTac.randCustPerHour(seaTac.minCustPerHour, seaTac.maxCustPerHour) * seaTac.avgCookiesPerCust));
-  }
-  for (var i=0; i<result.length; i++) {
-    var list = document.getElementById('seatac');
-    var item = document.createElement('li');
-    item.appendChild(document.createTextNode(hoursOpen[i] + ': ' + result[i] + " cookies" ));
-    list.appendChild(item);
-    seaTacTotal+= result[i];
-    console.log("SeaTac Result Count: " + seaTacTotal);
-  }
+var pikePlace = new CookieStand('Pike Place Market', 17, 88, 5.2);
+var seaTac = new CookieStand('SeaTac Airport', 6, 44, 1.2);
+var southcenter = new CookieStand('Southcenter Mall', 11, 38, 1.9);
+var bellevue = new CookieStand('Bellevue Square', 20, 48, 3.3);
+var alki = new CookieStand('Alki', 3, 24, 2.6);
 
-  console.log("SeaTac Daily Array: "+result);
-
-  var seaTacNewTotal = document.createElement('li');
-  seaTacNewTotal.appendChild(document.createTextNode('Total: ' + seaTacTotal + " cookies"));
-  list.appendChild(seaTacNewTotal);
-
-  return list;
-}
-
-seaTacDailyCookiesByLocation();
-
-var southcenter = {
-  location: "Southcenter Mall",
-  minCustPerHour: 11,
-  maxCustPerHour: 38,
-  avgCookiesPerCust: 1.9,
-  randCustPerHour: function(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-}
-
-function southcenterDailyCookiesByLocation() {
-  var result = [];
-  var southcenterTotal = 0;
-  var hoursOpen = ['10:00AM', '11:00AM', '12:00PM', '1:00PM', '2:00PM', '3:00PM', '4:00PM', '5:00PM'];
-  for (var i=0; i<hoursOpen.length; i++) {
-    result.push(parseInt(southcenter.randCustPerHour(southcenter.minCustPerHour, southcenter.maxCustPerHour) * southcenter.avgCookiesPerCust));
-  }
-  for (var i=0; i<result.length; i++) {
-    var list = document.getElementById('southcenter');
-    var item = document.createElement('li');
-    item.appendChild(document.createTextNode(hoursOpen[i] + ': ' + result[i] + " cookies"));
-    list.appendChild(item);
-    southcenterTotal+=result[i];
-    console.log("Southcenter Result Count: " + southcenterTotal);
-  }
-
-  console.log("Southcenter Daily Array: "+result);
-
-  var southcenterNewTotal = document.createElement('li');
-  southcenterNewTotal.appendChild(document.createTextNode('Total: ' + southcenterTotal + " cookies"));
-  list.appendChild(southcenterNewTotal);
-
-  return list;
-}
-
-southcenterDailyCookiesByLocation();
-
-var bellevue = {
-  location: "Bellevue Square",
-  minCustPerHour: 20,
-  maxCustPerHour: 48,
-  avgCookiesPerCust: 3.3,
-  randCustPerHour: function(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-}
-
-function bellevueDailyCookiesByLocation() {
-  var result = [];
-  var bellevueTotal = 0;
-  var hoursOpen = ['10:00AM', '11:00AM', '12:00PM', '1:00PM', '2:00PM', '3:00PM', '4:00PM', '5:00PM'];
-  for (var i=0; i<hoursOpen.length; i++) {
-    result.push(parseInt(bellevue.randCustPerHour(bellevue.minCustPerHour, bellevue.maxCustPerHour) * bellevue.avgCookiesPerCust));
-  }
-  for (var i=0; i<result.length; i++) {
-    var list = document.getElementById('bellevue');
-    var item = document.createElement('li');
-    item.appendChild(document.createTextNode(hoursOpen[i] + ': ' + result[i] + " cookies"));
-    list.appendChild(item);
-    bellevueTotal+= result[i];
-    console.log("Bellevue Result Count: " + bellevueTotal);
-  }
-
-  console.log("Bellevue Daily Array: "+result);
-
-  var bellevueNewTotal = document.createElement('li');
-  bellevueNewTotal.appendChild(document.createTextNode('Total: ' + bellevueTotal + " cookies"));
-  list.appendChild(bellevueNewTotal);
-
-  return list;
-}
-
-bellevueDailyCookiesByLocation();
-
-var alki = {
-  location: "Alki",
-  minCustPerHour: 3,
-  maxCustPerHour: 24,
-  avgCookiesPerCust: 2.6,
-  randCustPerHour: function(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
-}
-
-function alkiDailyCookiesByLocation() {
-  var result = [];
-  var alkiTotal = 0;
-  var hoursOpen = ['10:00AM', '11:00AM', '12:00PM', '1:00PM', '2:00PM', '3:00PM', '4:00PM', '5:00PM'];
-  for (var i=0; i<hoursOpen.length; i++) {
-    result.push(parseInt(alki.randCustPerHour(alki.minCustPerHour, alki.maxCustPerHour) * alki.avgCookiesPerCust));
-  }
-  for (var i=0; i<result.length; i++) {
-    var list = document.getElementById('alki');
-    var item = document.createElement('li');
-    item.appendChild(document.createTextNode(hoursOpen[i] + ': ' + result[i] + " cookies"));
-    list.appendChild(item);
-    alkiTotal+= result[i];
-    console.log("Alki Result Count: " + alkiTotal);
-  }
-
-  console.log("Alki Daily Array: "+result);
-
-  var alkiNewTotal = document.createElement('li');
-  alkiNewTotal.appendChild(document.createTextNode('Total: ' + alkiTotal + " cookies"));
-  list.appendChild(alkiNewTotal);
-
-  return list;
-}
-
-alkiDailyCookiesByLocation();
+pikePlace.dailyCookies('pike');
+seaTac.dailyCookies('seatac');
+southcenter.dailyCookies('southcenter');
+bellevue.dailyCookies('bellevue');
+alki.dailyCookies('alki');
