@@ -8,16 +8,9 @@ var pikePlace = {
   }
 }
 
-function pikeDailyTotal(arr) {
-  var pikeTotal = 0;
-  for (var i=0; i<arr.length; i++) {
-    pikeTotal = pikeTotal + arr[i];
-  }
-  return pikeTotal;
-}
-
 function pikeDailyCookiesByLocation() {
   var result = [];
+  var pikeTotal = 0;
   var hoursOpen = ['10:00AM', '11:00AM', '12:00PM', '1:00PM', '2:00PM', '3:00PM', '4:00PM', '5:00PM'];
   for (var i=0; i<hoursOpen.length; i++) {
     result.push(parseInt(pikePlace.randCustPerHour(pikePlace.minCustPerHour, pikePlace.maxCustPerHour) * pikePlace.avgCookiesPerCust));
@@ -26,9 +19,15 @@ function pikeDailyCookiesByLocation() {
   for (var i=0; i<result.length; i++) {
     var list = document.getElementById('pike');
     var item = document.createElement('li');
-    item.appendChild(document.createTextNode(hoursOpen[i] + ': ' + result[i] + " cookies"));
+    item.appendChild(document.createTextNode(hoursOpen[i] + ': ' + result[i] + " cookies" ));
     list.appendChild(item);
+    pikeTotal+= result[i];
   }
+
+  var pikeNewTotal = document.createElement('li');
+  pikeNewTotal.appendChild(document.createTextNode('Total: ' + pikeTotal + " cookies"));
+  list.appendChild(pikeNewTotal);
+
   return list;
 }
 
@@ -46,6 +45,7 @@ var seaTac = {
 
 function seaTacDailyCookiesByLocation() {
   var result = [];
+  var seaTacTotal = 0;
   var hoursOpen = ['10:00AM', '11:00AM', '12:00PM', '1:00PM', '2:00PM', '3:00PM', '4:00PM', '5:00PM'];
   for (var i=0; i<hoursOpen.length; i++) {
     result.push(parseInt(seaTac.randCustPerHour(seaTac.minCustPerHour, seaTac.maxCustPerHour) * seaTac.avgCookiesPerCust));
@@ -53,9 +53,15 @@ function seaTacDailyCookiesByLocation() {
   for (var i=0; i<result.length; i++) {
     var list = document.getElementById('seatac');
     var item = document.createElement('li');
-    item.appendChild(document.createTextNode(hoursOpen[i] + ': ' + result[i] + " cookies"));
+    item.appendChild(document.createTextNode(hoursOpen[i] + ': ' + result[i] + " cookies" ));
     list.appendChild(item);
+    seaTacTotal+= result[i];
   }
+
+  var seaTacNewTotal = document.createElement('li');
+  seaTacNewTotal.appendChild(document.createTextNode('Total: ' + seaTacTotal + " cookies"));
+  list.appendChild(seaTacNewTotal);
+
   return list;
 }
 
@@ -73,6 +79,7 @@ var southcenter = {
 
 function southcenterDailyCookiesByLocation() {
   var result = [];
+  var southcenterTotal = 0;
   var hoursOpen = ['10:00AM', '11:00AM', '12:00PM', '1:00PM', '2:00PM', '3:00PM', '4:00PM', '5:00PM'];
   for (var i=0; i<hoursOpen.length; i++) {
     result.push(parseInt(southcenter.randCustPerHour(southcenter.minCustPerHour, southcenter.maxCustPerHour) * southcenter.avgCookiesPerCust));
@@ -82,7 +89,13 @@ function southcenterDailyCookiesByLocation() {
     var item = document.createElement('li');
     item.appendChild(document.createTextNode(hoursOpen[i] + ': ' + result[i] + " cookies"));
     list.appendChild(item);
+    southcenterTotal+=result[i];
   }
+
+  var southcenterNewTotal = document.createElement('li');
+  southcenterNewTotal.appendChild(document.createTextNode('Total: ' + southcenterTotal + " cookies"));
+  list.appendChild(southcenterNewTotal);
+
   return list;
 }
 
