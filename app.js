@@ -31,7 +31,6 @@ var CookieStand = function(place, minCustPerHour, maxCustPerHour, avgCookiesPerC
     console.log(this.place + " " + this.cookiesByHourList);
     console.log("Daily Cookie Total: " + dailyCookieTotal);
   };
-
 };
 
 var pikePlace = new CookieStand('Pike Place Market', 17, 88, 5.2);
