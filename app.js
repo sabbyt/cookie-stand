@@ -79,3 +79,26 @@ var seaTac = new CookieStand('SeaTac Airport', 6, 44, 1.2);
 var southcenter = new CookieStand('Southcenter Mall', 11, 38, 1.9);
 var bellevue = new CookieStand('Bellevue Square', 20, 48, 3.3);
 var alki = new CookieStand('Alki', 3, 24, 2.6);
+
+
+//form js here
+var submitLocation  = function(placeForm, minCustForm, maxCustForm, avgCookieForm) {
+  this.placeForm = placeForm;
+  this.minCustForm = minCustForm;
+  this.maxCustForm = maxCustForm;
+  this.avgCookieForm = avgCookieForm;
+};
+
+var form = document.getElementById("new-location-form");
+var formButton = document.getElementById("submit-button");
+var newLocationArray = [];
+
+var newLocationSubmit = function(event) {
+  var newLocation = new submitLocation(event.target.placeForm.value, event.target.minCustForm.value, event.target.maxCustForm.value, event.target.avgCookieForm.value);
+  newLocationArray.push(newLocation);
+  console.log("Submit working");
+
+  newLocationArray = new Object(placeForm, minCustForm, maxCustForm, avgCookieForm);
+};
+
+formButton.addEventListener('click', newLocationSubmit);
