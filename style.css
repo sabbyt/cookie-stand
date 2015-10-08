@@ -1,24 +1,125 @@
-h1 {
-  font-family: 'Special Elite', cursive;
+header {
+  background-color: #fdf6ee;
 }
 
-h4 {
+h1 {
+  font-family: 'Special Elite', cursive;
+  text-align: center;
+  color: black;
+  font-size: 300%;
+}
+
+h2 {
   font-family: 'Special Elite', cursive;
   color: #003399;
+  padding: 0px 20px 0px 20px;
+  text-shadow: 2px 2px 3px #666666;
 }
 
 body {
-  background-color: #FAEBD7;
-  font-size: 20px;
-  font-family: Arial;
+  font-size: 22px;
+  font-family: Garamond, serif;
+  color: #008b8b;
+  text-align: justify;
+  padding: 20px 20px 0px 20px;
+}
+
+section {
+  background-color: #fdf6ee;
+}
+
+p, a {
+  padding: 10px 20px 10px 20px;
+  line-height: 1.5em;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.back-color-diff {
+  background-color: #fdf6ee;
+}
+
+.center-text {
+  text-align:center;
 }
 
 .data {
-  font-family: Helvetica;
+  font-family: Verdana, sans-serif;
   color: #8b0046;
 }
 
-.text {
-  font-family: Times;
-  color: #008b8b;
+.images {
+  font-family: Garamond, serif;
+  font-style: italic;
+  color: #003399;
+  text-align: center;
+  font-size: 26px;
+  width: 100%;
+  display: block;
+}
+
+#locations {
+  display: inline-block;
+  margin: 20px 10px 0px 10px;
+  padding: none;
+  height: 700px;
+  width: 31%;
+  border-radius: 20px;
+  text-align: center;
+  float: left;
+  line-height: 1.6em;
+}
+
+#merch {
+  display: inline-block;
+  margin: 20px 10px 0px 10px;
+  padding: none;
+  height: 700px;
+  width: 31%;
+  border-radius: 20px;
+  text-align: center;
+  float: left;
+}
+
+#events {
+  display: inline-block;
+  margin: 20px 10px 0px 10px;
+  padding: none;
+  height: 700px;
+  width: 31%;
+  border-radius: 20px;
+  text-align: left;
+  float: left;
+}
+
+#footer {
+  font-family: Garamond, serif;
+  font-style: italic;
+  color: #003399;
+  text-align: center;
+  font-size: 26px;
+  width: 100%;
+  margin-top: 720px;
+  padding-top: 20px;
+}
+
+#footer img {
+  border-color: black;
+}
+
+a:link {
+  color: #8b008b;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #00458b;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: #8b008b;
 }
