@@ -83,23 +83,25 @@ var alki = new CookieStand('Alki', 3, 24, 2.6);
 
 
 //form js here
-var submitLocation  = function(placeForm, minCustForm, maxCustForm, avgCookieForm) {
-  this.placeForm = placeForm;
-  this.minCustForm = minCustForm;
-  this.maxCustForm = maxCustForm;
-  this.avgCookieForm = avgCookieForm;
-};
+var newLocationSubmit = function(e) {
+  e.preventDefault();
+  var newStoreLocation = document.getElementById('placeForm');
+  var newMinCust = document.getElementById('minCustForm');
+  var newMaxCust = document.getElementById('maxCustForm');
+  var newAvgCookie = document.getElementById('avgCookieForm');
 
-var form = document.getElementById("new-location-form");
-var formButton = document.getElementById("submit-button");
-var newLocationArray = [];
-
-var newLocationSubmit = function(event) {
-  var newLocation = new submitLocation(event.target.placeForm.value, event.target.minCustForm.value, event.target.maxCustForm.value, event.target.avgCookieForm.value);
-  newLocationArray.push(newLocation);
+//gets values from form and puts into object constructor
+  var newLocation = new CookieStand(newStoreLocation.value, newMinCust.value, newMaxCust.value, newAvgCookie.value);
   console.log("Submit working");
 
-  newLocationArray = new Object(placeForm, minCustForm, maxCustForm, avgCookieForm);
+//clear values in form once inserted
+  newStoreLocation.value = null;
+  newMinCust.value = null;
+  newMaxCust.value = null;
+  newAvgCookie.value = null;
+
 };
 
-formButton.addEventListener('click', newLocationSubmit);
+//submit button to add event listener
+var submitButton = document.getElementById('submitButton');
+submitButton.addEventListener('click', newLocationSubmit);

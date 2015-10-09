@@ -46,7 +46,6 @@ table {
 th {
   font-weight: bold;
   font-size: 110%;
-  text-shadow: 1px 1px 2px #666666;
 }
 
 form {
@@ -70,14 +69,14 @@ input {
   border: 1px solid #666666;
 }
 
-input#submit-button {
+input#submitButton {
   background-color: #fdf6ee;
   color: #008b8b;
   margin-top: 20px;
 }
 
-input#submit-button:hover {
-  text-shadow: 2px 2px 3px #666666;
+input#submitButton:hover {
+  text-shadow: 1px 1px 1px #f5d2aa;
 }
 
 .back-color-diff {
