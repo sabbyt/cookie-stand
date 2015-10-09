@@ -17,7 +17,7 @@ for (var i=0; i<hoursOpen.length; i++) {
 }
 
 var totalColumn = document.createElement('th');
-totalColumn.appendChild(document.createTextNode("Total"));
+totalColumn.appendChild(document.createTextNode("TOTAL"));
 headerRow.appendChild(totalColumn);
 console.log("Total cookies header");
 //header of table end
@@ -66,6 +66,7 @@ var CookieStand = function(place, minCustPerHour, maxCustPerHour, avgCookiesPerC
     var dailyNewTotal = document.createElement('td');
     dailyNewTotal.appendChild(document.createTextNode(dailyCookieTotal));
     infoRow.appendChild(dailyNewTotal);
+    dailyNewTotal.className="totalTableAlign";
 
     console.log(this.place + " " + this.cookiesByHourList);
     console.log("Daily Cookie Total: " + dailyCookieTotal);
