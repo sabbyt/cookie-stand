@@ -48,7 +48,7 @@ var CookieStand = function(place, minCustPerHour, maxCustPerHour, avgCookiesPerC
 //store location row start
     var infoRow = document.createElement('tr');
     var storeLocation = document.createElement('td');
-    storeLocation.appendChild(document.createTextNode(this.place));
+    storeLocation.appendChild(document.createTextNode(this.place.toUpperCase()));
     infoRow.appendChild(storeLocation);
     storeColumn.appendChild(infoRow);
     console.log("Place row working");
@@ -90,16 +90,39 @@ var newLocationSubmit = function(e) {
   var newMaxCust = document.getElementById('maxCustForm');
   var newAvgCookie = document.getElementById('avgCookieForm');
 
+  //error checking for values in all boxes
+  if (!newStoreLocation.value || !newMinCust.value || !newMaxCust.value || !newAvgCookie.value ) {
+    return alert('Please fill all values');
+  }
+  //error checking for number value
+  else if (isNaN(newMinCust.value) || isNaN(newMaxCust.value) || isNaN(newAvgCookie.value)) {
+    return alert('Please enter a number');
+  }
+  //error checking for max and min values
+  else if ((newMinCust.value) > (newMaxCust.value)) {
+    return alert('Please enter a maximum customers per hours value greater than the minimum customers per hour');
+  }
+  else {
+    console.log("No errors");
+  }
+
+//this updates values for existing store
+  if (newStoreLocation.value === this.place) {
+    this.minCustPerHour = newMinCust.value;
+    this.maxCustPerHour = newMaxCust.value;
+    this.avgCookiesPerCust = newAvgCookie.value;
+    console.log("Same location with updated values");
+  }
+
 //gets values from form and puts into object constructor
-  var newLocation = new CookieStand(newStoreLocation.value, newMinCust.value, newMaxCust.value, newAvgCookie.value);
-  console.log("Submit working");
+  var newLocation = new CookieStand((newStoreLocation.value.toUpperCase()), newMinCust.value, newMaxCust.value, newAvgCookie.value);
+  console.log("Submit location working");
 
 //clear values in form once inserted
-  newStoreLocation.value = null;
-  newMinCust.value = null;
-  newMaxCust.value = null;
-  newAvgCookie.value = null;
-
+    newStoreLocation.value = null;
+    newMinCust.value = null;
+    newMaxCust.value = null;
+    newAvgCookie.value = null;
 };
 
 //submit button to add event listener
