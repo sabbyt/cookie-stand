@@ -37,6 +37,48 @@ ul {
   list-style-type: none;
 }
 
+table {
+  width: 80%;
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+
+th {
+  font-weight: bold;
+  font-size: 110%;
+}
+
+form {
+  width: 60%;
+}
+
+fieldset {
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid #666666;
+  line-height: 1.6em;
+}
+
+label {
+  padding: 10px;
+}
+
+input {
+  font-size: 80%;
+  font-family: Garamond, serif;
+  border: 1px solid #666666;
+}
+
+input#submitButton {
+  background-color: #fdf6ee;
+  color: #008b8b;
+  margin-top: 20px;
+}
+
+input#submitButton:hover {
+  text-shadow: 1px 1px 1px #f5d2aa;
+}
+
 .back-color-diff {
   background-color: #fdf6ee;
 }
@@ -58,6 +100,10 @@ ul {
   font-size: 26px;
   width: 100%;
   display: block;
+}
+
+.totalTableAlign {
+  text-align: right;
 }
 
 #locations {
@@ -101,7 +147,7 @@ ul {
   text-align: center;
   font-size: 26px;
   width: 100%;
-  margin-top: 720px;
+  margin-top: 730px;
   padding-top: 20px;
 }
 
