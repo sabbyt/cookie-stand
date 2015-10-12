@@ -59,6 +59,7 @@ var CookieStand = function(place, minCustPerHour, maxCustPerHour, avgCookiesPerC
       var cookieByHour = document.createElement('td');
       cookieByHour.appendChild(document.createTextNode(this.cookiesByHourList[i]));
       infoRow.appendChild(cookieByHour);
+      cookieByHour.className="data";
       console.log(place + " Result Count: " + dailyCookieTotal);
     }
 
@@ -66,7 +67,7 @@ var CookieStand = function(place, minCustPerHour, maxCustPerHour, avgCookiesPerC
     var dailyNewTotal = document.createElement('td');
     dailyNewTotal.appendChild(document.createTextNode(dailyCookieTotal));
     infoRow.appendChild(dailyNewTotal);
-    dailyNewTotal.className="totalTableAlign";
+    dailyNewTotal.className="data";
 
     console.log(this.place + " " + this.cookiesByHourList);
     console.log("Daily Cookie Total: " + dailyCookieTotal);
