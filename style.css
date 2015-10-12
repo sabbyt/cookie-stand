@@ -79,6 +79,10 @@ input#submitButton:hover {
   text-shadow: 1px 1px 1px #f5d2aa;
 }
 
+.alignLeft {
+  text-align:left;
+}
+
 .back-color-diff {
   background-color: #fdf6ee;
 }

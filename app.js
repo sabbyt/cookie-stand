@@ -29,6 +29,7 @@ var CookieStand = function(place, minCustPerHour, maxCustPerHour, avgCookiesPerC
   this.maxCustPerHour = maxCustPerHour;
   this.avgCookiesPerCust = avgCookiesPerCust;
   this.cookiesByHourList = [];
+  locationList.push(this.place.toUpperCase());
 
 //customer randomiser
   this.randCustPerHour = function() {
@@ -59,6 +60,7 @@ var CookieStand = function(place, minCustPerHour, maxCustPerHour, avgCookiesPerC
       var cookieByHour = document.createElement('td');
       cookieByHour.appendChild(document.createTextNode(this.cookiesByHourList[i]));
       infoRow.appendChild(cookieByHour);
+      cookieByHour.className="data";
       console.log(place + " Result Count: " + dailyCookieTotal);
     }
 
@@ -66,7 +68,7 @@ var CookieStand = function(place, minCustPerHour, maxCustPerHour, avgCookiesPerC
     var dailyNewTotal = document.createElement('td');
     dailyNewTotal.appendChild(document.createTextNode(dailyCookieTotal));
     infoRow.appendChild(dailyNewTotal);
-    dailyNewTotal.className="totalTableAlign";
+    dailyNewTotal.className="data";
 
     console.log(this.place + " " + this.cookiesByHourList);
     console.log("Daily Cookie Total: " + dailyCookieTotal);
@@ -75,12 +77,16 @@ var CookieStand = function(place, minCustPerHour, maxCustPerHour, avgCookiesPerC
   this.dailyCookies();
 };
 
+//variable for location total
+var locationList = [];
+
 var pikePlace = new CookieStand('Pike Place Market', 17, 88, 5.2);
 var seaTac = new CookieStand('SeaTac Airport', 6, 44, 1.2);
 var southcenter = new CookieStand('Southcenter Mall', 11, 38, 1.9);
 var bellevue = new CookieStand('Bellevue Square', 20, 48, 3.3);
 var alki = new CookieStand('Alki', 3, 24, 2.6);
 
+console.log(locationList);
 
 //form js here
 var newLocationSubmit = function(e) {
@@ -92,26 +98,18 @@ var newLocationSubmit = function(e) {
 
   //error checking for values in all boxes
   if (!newStoreLocation.value || !newMinCust.value || !newMaxCust.value || !newAvgCookie.value ) {
-    return alert('Please fill all values');
+    return alert('Please fill in all values');
   }
   //error checking for number value
   else if (isNaN(newMinCust.value) || isNaN(newMaxCust.value) || isNaN(newAvgCookie.value)) {
     return alert('Please enter a number');
   }
   //error checking for max and min values
-  else if ((newMinCust.value) > (newMaxCust.value)) {
+  else if (Number(newMinCust.value) > Number(newMaxCust.value)) {
     return alert('Please enter a maximum customers per hours value greater than the minimum customers per hour');
   }
   else {
     console.log("No errors");
-  }
-
-//this updates values for existing store
-  if (newStoreLocation.value === this.place) {
-    this.minCustPerHour = newMinCust.value;
-    this.maxCustPerHour = newMaxCust.value;
-    this.avgCookiesPerCust = newAvgCookie.value;
-    console.log("Same location with updated values");
   }
 
 //gets values from form and puts into object constructor
